@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aisyah Kurnia Fitri | Portfolio & Profile</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fff0f3;
+            --card-bg: #ffffff;
+            --text-color: #4a3e3d;
+            --primary-pink: #ffb3c6;
+            --accent-pink: #ff85a1;
+            --soft-purple: #e2d4f0;
+            --border-color: #ffccd5;
+            --badge-bg: #ffe5ec;
+            --badge-text: #ff477e;
+            --info-bg: #fff0f3;
+            --quote-bg: linear-gradient(135deg, #fff5f7, #f7f0fa);
+        }
+
+        /* Dark Mode (Tetap Lembut & Nyaman di Mata) */
+        [data-theme="dark"] {
+            --bg-color: #1e1b2e;
+            --card-bg: #2a2540;
+            --text-color: #f3e9f8;
+            --primary-pink: #ff85a1;
+            --accent-pink: #ffb3c6;
+            --soft-purple: #4a3e6d;
+            --border-color: #4a3e6d;
+            --badge-bg: #3d3257;
+            --badge-text: #ffb3c6;
+            --info-bg: #231e36;
+            --quote-bg: linear-gradient(135deg, #231e36, #2d2645);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding-bottom: 3rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka', cursive;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            position: relative;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--accent-pink);
+            color: #1e1b2e;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(255, 133, 161, 0.3);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .avatar-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-pink), var(--soft-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            font-size: 3.5rem;
+            box-shadow: 0 8px 20px rgba(255, 179, 198, 0.4);
+            border: 4px solid var(--card-bg);
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            color: var(--accent-pink);
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            font-weight: 600;
+            opacity: 0.85;
+            margin-bottom: 0.8rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h2 {
+            color: var(--accent-pink);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Profile Quick Info */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item {
+            background: var(--info-bg);
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-pink);
+        }
+
+        .info-item label {
+            font-size: 0.8rem;
+            font-weight: bold;
+            opacity: 0.7;
+            display: block;
+        }
+
+        .info-item span {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        /* Interest Badges */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+
+        .badge {
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge:hover {
+            transform: scale(1.05);
+        }
+
+        /* Quote Box Interactive */
+        .quote-box {
+            text-align: center;
+            background: var(--quote-bg);
+            border: 2px dashed var(--accent-pink);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .quote-text {
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-quote {
+            background: var(--accent-pink);
+            color: #1e1b2e;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .btn-quote:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            .hero-title { font-size: 1.8rem; }
+            .card { padding: 1.5rem; }
+            .theme-toggle { position: static; margin-bottom: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Mode Gelap</button>
+        <div class="avatar-container">
+            🌸
+        </div>
+        <h1 class="hero-title">Aisyah Kurnia Fitri</h1>
+        <p class="hero-subtitle">Statistika & Sains Data UNNES '24</p>
+        <div class="badge-container" style="justify-content: center;">
+            <span class="badge">📊 Data Analyst Enthusiast</span>
+            <span class="badge">🤖 Machine Learning Explorer</span>
+            <span class="badge">👥 Active Organizational Member</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Quick Info Card -->
+        <div class="card">
+            <h2>✨ Ringkasan Profil</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>Universitas</label>
+                    <span>Universitas Negeri Semarang</span>
+                </div>
+                <div class="info-item">
+                    <label>Program Studi</label>
+                    <span>Statistika & Sains Data</span>
+                </div>
+                <div class="info-item">
+                    <label>Angkatan</label>
+                    <span>2024</span>
+                </div>
+                <div class="info-item">
+                    <label>Umur</label>
+                    <span>20 Tahun</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me Card -->
+        <div class="card">
+            <h2>🌷 Tentang Saya</h2>
+            <p>
+                Halo! Saya <strong>Aisyah Kurnia Fitri</strong>. Saya sangat tertarik dengan hal-hal yang berkaitan dengan data, mulai dari pengolahan dan analisis data hingga bidang <i>machine learning</i>. Saat ini saya masih terus belajar dan mengembangkan kemampuan di bidang tersebut melalui kegiatan perkuliahan, berbagai proyek, serta pengalaman yang saya dapatkan selama menjadi mahasiswa.
+            </p>
+            <br>
+            <p>
+                Selain bidang akademik, saya juga aktif dalam organisasi dan kegiatan di kampus. Dari pengalaman tersebut, saya banyak belajar tentang bekerja dalam tim, berkomunikasi dengan orang lain, mengelola kegiatan, serta bertanggung jawab terhadap tugas yang saya jalankan.
+            </p>
+            <br>
+            <p>
+                Saya masih dalam proses mengenal dan mengeksplorasi berbagai bidang untuk menemukan hal yang paling sesuai dengan diri saya. Karena itu, saya terbuka untuk mempelajari hal baru, mencoba berbagai pengalaman, berkolaborasi dengan orang lain, dan terus berkembang.
+            </p>
+        </div>
+
+        <!-- Interest & Skill Card -->
+        <div class="card">
+            <h2>💡 Minat & Pengalaman</h2>
+            <p>Beberapa hal yang sedang saya fokuskan dan pelajari saat ini:</p>
+            <div class="badge-container">
+                <span class="badge">Analisis Data (Data Analysis)</span>
+                <span class="badge">Pengolahan Data (Data Wrangling)</span>
+                <span class="badge">Machine Learning Basics</span>
+                <span class="badge">Kerjasama Tim (Teamwork)</span>
+                <span class="badge">Manajemen Kegiatan & Organisasi</span>
+                <span class="badge">Komunikasi Interpersonal</span>
+            </div>
+        </div>
+
+        <!-- Interactive Quote Card -->
+        <div class="card">
+            <h2>💌 Catatan & Pesan Positif</h2>
+            <div class="quote-box">
+                <p id="quoteText" class="quote-text">"Setiap data menyimpan cerita, dan setiap proses belajar membawa kita lebih dekat pada tujuan."</p>
+                <button class="btn-quote" onclick="generateQuote()">Ganti Kutipan 💖</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Aisyah Kurnia Fitri • Tugas Web Statis Cloud Computing</p>
+    </footer>
+
+    <script>
+        // Fitur Light / Dark Mode Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.querySelector('.theme-toggle');
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                btn.textContent = '🌙 Mode Gelap';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                btn.textContent = '☀️️ Mode Terang';
+            }
+        }
+
+        // Fitur Random Quotes Generator
+        const quotes = [
+            "Setiap data menyimpan cerita, dan setiap proses belajar membawa kita lebih dekat pada tujuan.",
+            "Belajar hal baru itu seperti mengolah data: butuh proses sebelum menemukan pola terbaiknya.",
+            "Terbuka untuk kolaborasi, selalu siap berkembang!",
+            "Pengalaman organisasi mengajarkan komunikasi, akademik membekali analisis.",
+            "Jangan takut mencoba hal baru, karena dari sanalah potensi terbaik kita ditemukan ✨"
+        ];
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quoteText').textContent = `"${quotes[randomIndex]}"`;
+        }
+    </script>
+</body>
+</html>
